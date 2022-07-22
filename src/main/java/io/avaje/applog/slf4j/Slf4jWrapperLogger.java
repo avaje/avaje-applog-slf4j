@@ -1,4 +1,3 @@
-
 package io.avaje.applog.slf4j;
 
 import java.util.ResourceBundle;
