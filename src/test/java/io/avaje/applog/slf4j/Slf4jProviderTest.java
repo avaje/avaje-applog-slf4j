@@ -13,7 +13,7 @@ class Slf4jProviderTest {
 
   @Test
   void logger() {
-    System.Logger log = AppLog.get(Slf4jProvider.class);
+    System.Logger log = AppLog.getLogger(Slf4jProvider.class);
     log.log(Level.INFO, "Hello {0}", "world");
 
     LoggingEvent event = Slf4jCaptureAppender.lastEvent();
@@ -32,7 +32,7 @@ class Slf4jProviderTest {
   @Test
   void loggerWithBundle() {
     ResourceBundle barBundle = ResourceBundle.getBundle("io.foo.bar");
-    System.Logger log = AppLog.get("io.withBundle", barBundle);
+    System.Logger log = AppLog.getLogger("io.withBundle", barBundle);
 
     log.log(Level.INFO, barBundle, "key0", "LoggerWithBundleWorld");
 

@@ -15,7 +15,7 @@ public final class Slf4jProvider implements AppLog.Provider {
   private final ConcurrentMap<String, Slf4jLogger> loggerCache = new ConcurrentHashMap<>();
 
   private System.Logger logger(String loggerName) {
-    return loggerCache.computeIfAbsent(loggerName, s -> new Slf4jLogger(LoggerFactory.getLogger(loggerName)));
+    return loggerCache.computeIfAbsent(loggerName, key -> new Slf4jLogger(LoggerFactory.getLogger(loggerName)));
   }
 
   @Override
