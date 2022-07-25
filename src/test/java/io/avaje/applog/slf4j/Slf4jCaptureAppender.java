@@ -14,6 +14,8 @@ public class Slf4jCaptureAppender<E> extends ConsoleAppender<E> {
   }
 
   static LoggingEvent lastEvent() {
-    return lastEvent;
+    var temp = lastEvent;
+    lastEvent = null;
+    return temp;
   }
 }

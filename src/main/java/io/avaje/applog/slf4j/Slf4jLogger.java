@@ -155,19 +155,11 @@ final class Slf4jLogger implements System.Logger {
     if (bundle == null || msg == null) {
       return msg;
     }
-    // ResourceBundle::getString throws:
-    //
-    // * NullPointerException for null keys
-    // * ClassCastException if the message is no string
-    // * MissingResourceException if there is no message for the key
-    //
-    // Handle all of these cases here to avoid log-related exceptions from crashing the JVM.
     try {
       return bundle.getString(msg);
-    } catch (MissingResourceException ex) {
+    } catch (Throwable ex) {
+      // handle all errors to avoid log-related exceptions from crashing the JVM.
       return msg;
-    } catch (ClassCastException ex) {
-      return bundle.getObject(msg).toString();
     }
   }
 
