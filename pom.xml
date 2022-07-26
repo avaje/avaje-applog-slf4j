@@ -10,7 +10,7 @@
 
     <groupId>io.avaje</groupId>
     <artifactId>avaje-applog-slf4j</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
 
     <scm>
         <developerConnection>scm:git:git@github.com:avaje/avaje-applog-slf4j.git</developerConnection>
